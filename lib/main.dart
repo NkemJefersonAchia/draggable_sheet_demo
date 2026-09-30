@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -10,6 +11,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'DraggableScrollableSheet Demo',
       debugShowCheckedModeBanner: false,
+      // Only needed to demo this in a browser: Flutter disables dragging
+      // with a mouse by default, so without this the sheet would look
+      // broken on web. On a real phone it is not required.
+      scrollBehavior: const MaterialScrollBehavior().copyWith(
+        dragDevices: {PointerDeviceKind.touch, PointerDeviceKind.mouse},
+      ),
       home: const HomeScreen(),
     );
   }
