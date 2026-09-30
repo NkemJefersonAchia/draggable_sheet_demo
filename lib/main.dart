@@ -15,13 +15,25 @@ class MyApp extends StatelessWidget {
   }
 }
 
+/// Use case: a maps / ride-hailing screen.
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Text('Demo')),
+    return Scaffold(
+      // A Stack so the sheet can later be layered on top of this background.
+      body: Stack(
+        children: [
+          // The background that stays visible behind the sheet.
+          Container(
+            color: Colors.green.shade100,
+            child: const Center(
+              child: Text('MAP', style: TextStyle(fontSize: 40)),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
